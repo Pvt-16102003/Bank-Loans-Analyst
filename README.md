@@ -3,12 +3,12 @@
 ### 1. Giới thiệu
 Dự án phân tích dữ liệu khoản vay ngân hàng nhằm mục tiêu đánh giá rủi ro tín dụng, xác định các yếu tố ảnh hưởng đến khả năng hoàn trả của khách hàng và hỗ trợ quyết định phê duyệt khoản vay. Thông qua việc khai thác dữ liệu lịch sử, dự án sẽ cung cấp các thông tin quan trọng cũng như các xu hướng vốn vay giúp ngân hàng tối ưu hóa chiến lược cho vay và giảm thiểu rủi ro nợ xấu.
 
-## 2. Mục tiêu
+### 2. Mục tiêu
 - **Phân tích xu hướng khoản vay:** Xác định các đặc điểm của khách hàng có khoản vay được duyệt hoặc bị từ chối.
 - **Đánh giá rủi ro tín dụng:** Xác định các yếu tố ảnh hưởng đến khả năng có khoản nợ xấu.
 - **Hỗ trợ cải thiện chính sách cho vay:** Đề xuất các biện pháp giảm rủi ro và tối ưu hóa lợi nhuận.
 
-## 3. Dữ liệu
+### 3. Dữ liệu
 - **Nguồn dữ liệu:** Dữ liệu lịch sử khoản vay từ ngân hàng, bao gồm thông tin cá nhân, tình trạng tài chính, lịch sử tín dụng và thông tin khoản vay (**Nguồn**: Cá nhân)
 - **Các trường dữ liệu chính:**
   - **Thông tin khách hàng:** Tuổi, thu nhập, tình trạng hôn nhân, nghề nghiệp.
@@ -16,11 +16,11 @@ Dự án phân tích dữ liệu khoản vay ngân hàng nhằm mục tiêu đá
   - **Thông tin khoản vay:** Số tiền vay, thời hạn vay, lãi suất, mục đích vay.
   - **Kết quả hoàn trả:** Đã trả đúng hạn, trễ hạn hoặc vỡ nợ.
 
-## 4. Phương pháp phân tích
+### 4. Phương pháp phân tích
 - **Thống kê mô tả:** Phân tích tổng quan về dữ liệu, kiểm tra phân phối và tìm hiểu các đặc điểm nổi bật.
 - **Trực quan hóa dữ liệu:** Sử dụng biểu đồ để thể hiện xu hướng và mối quan hệ giữa các biến số.
 
-## 5. Công cụ sử dụng
+### 5. Công cụ sử dụng
 - **Ngôn ngữ lập trình:** Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn)
 - **Trực quan hóa:** Tableau
 - **Xử lý dữ liệu:**  Python, Pandas
@@ -126,17 +126,63 @@ Tỷ lệ nợ xấu của ngân hàng hiện vẫn ở mức khá cao, mặc d�
 - Lịch sử tín dụng: Tỷ lệ khách hàng có điểm tín dụng thấp hoặc có tiền sử nợ xấu trong quá khứ.
 
 **Đặc điểm nhân khẩu học:** 
+**Nhóm ngành nghề nghiệp**
 
+<img width="526" alt="Ảnh màn hình 2025-03-12 lúc 14 15 55" src="https://github.com/user-attachments/assets/473e0d5a-11e9-4cbc-8a52-cafbe7a36329" />
 
+Có thể thấy rằng nhóm ngành "Nhà nước, Công an, Quân đội" chiếm tỷ lệ cao nhất, tuy nhiên số lượng khoản vay thực tế lại ở mức thấp, dẫn đến việc nhóm này chưa thực sự mang tính đại diện.
 
+Thay vào đó, các nhóm ngành "Nhân viên văn phòng" và "Tự doanh & Kinh doanh" có tỷ lệ vay vốn khá cao. Đặc biệt, việc chưa xác định rõ nghề nghiệp của người vay cũng là một yếu tố đáng chú ý, với nhóm "unknown" chiếm 9.13%. Điều này cho thấy có một phần khách hàng chưa được phân loại rõ ràng về nghề nghiệp, có thể do thiếu thông tin hoặc chưa cập nhật đầy đủ dữ liệu hồ sơ.
 
+Việc xác định tính chất nghề nghiệp của người vay không chỉ dừng lại ở danh mục ngành nghề mà còn liên quan đến các yếu tố khác như nơi làm việc, loại hình doanh nghiệp. Tuy nhiên, trong phân tích trên, chưa có đủ dữ liệu và thông tin bên ngoài để xác định chính xác những yếu tố này. Vì vậy, tôi sẽ chuyển hướng sang phân tích tiếp về độ tuổi trung bình của nhóm khách hàng, nhằm tìm hiểu thêm về đặc điểm nhân khẩu học và xu hướng vay vốn theo độ tuổi.
 
+![image](https://github.com/user-attachments/assets/869987e4-5a02-4596-870e-df64b195a9ea)
 
+Ở phần này thì chưa có điểm gì qúa khác biệt số với những nhóm nợ khác 
 
-## 7. Hướng phát triển trong tương lai
+![image](https://github.com/user-attachments/assets/808c62df-5caf-41cb-945f-4d35bd77f2ba)
+
+Thời gian sinh sống cũng chưa có sự khác biệt về tỷ lệ giữa các nhóm, tỷ lệ nợ xấu được dàn đều ở mức 7% - 10% cho các nhóm nên nhận thấy được cơ cấu thu hồi nợ và phê duyệt khoản vay của ngân hàng thực hiện chưa thực sự tốt và tỷ lệ nợ xấu ngoài việc phân phối chủ yếu theo nhóm ngành thì đặc điểm dân cư chưa thực sự quá ảnh hưởng.
+
+**Khả năng chi trả:**
+
+![image](https://github.com/user-attachments/assets/62626a0c-3d9e-403e-ae1a-a5f6b02b0c9c)
+
+Mức lương chỉ chênh lệch nhau 1 chút, chưa thể hiện rõ được đặc điểm của nhóm nợ xấu, không quá khác biệt so với các nhóm khác (Đặc điểm có thể nằm ở các nhóm ngành nghề) (Thông tin này cũng có thể là người vay tự khai nên chưa xác định được đúng)
+
+**Lịch sử tín dụng**
+
+**Phân phối điểm tín dụng**
+
+![image](https://github.com/user-attachments/assets/8fe5f446-a4ad-48bd-9e46-2590db764aa2)
+
+![image](https://github.com/user-attachments/assets/3acae28b-1612-4351-9a42-26e65708ccec)
+
+Biểu đồ cho thấy nhóm Nợ xấu có điểm tín dụng trung bình 525.3, thấp hơn đáng kể so với nhóm Khác (595.8). Khách hàng thuộc nhóm Nợ xấu chủ yếu có điểm dưới 550, trong khi nhóm Khác tập trung nhiều từ 600-700. Điều này cho thấy nguy cơ vỡ nợ cao hơn ở những khách hàng có điểm tín dụng thấp.
+
+Ngân hàng nên siết chặt điều kiện vay với khách có điểm dưới 500, đồng thời tăng cường kiểm soát rủi ro và hỗ trợ nâng cao điểm tín dụng. Theo dõi xu hướng này giúp điều chỉnh chính sách tín dụng phù hợp, đảm bảo tăng trưởng bền vững.
+
+**Lịch sử tín dụng** 
+
+<img width="388" alt="Ảnh màn hình 2025-03-12 lúc 14 39 59" src="https://github.com/user-attachments/assets/ed03acef-0d8a-4d7a-aad1-12f3b2cc4656" />
+
+Bảng dữ liệu thể hiện tỷ lệ các trạng thái khoản vay theo biến has_late_payment (có từng trễ hạn thanh toán hay không).
+
+- Khách hàng không có trễ hạn (0): Tỷ lệ Nợ xấu cao hơn (9.13%) so với nhóm có trễ hạn (5.65%), cho thấy nhiều khoản vay có thể rơi vào nợ xấu ngay cả khi không có lịch sử trễ hạn.
+- Khách hàng có trễ hạn (1): Tỷ lệ Đang vay cao hơn (29.46%) so với nhóm không trễ hạn (23.98%), có thể do họ tiếp tục vay dù từng trễ hạn.
+
+Điều này cho thấy cần xem xét thêm các yếu tố khác ngoài trễ hạn để đánh giá rủi ro tín dụng chính xác hơn.
+
+<img width="369" alt="Ảnh màn hình 2025-03-12 lúc 14 42 04" src="https://github.com/user-attachments/assets/488f4958-0efc-4cbb-97fa-6202ca869b72" />
+
+Bảng dữ liệu cho thấy sự khác biệt đáng kể giữa khách hàng có lịch sử nợ xấu và không có nợ xấu trước đó. Cụ thể, nhóm khách hàng từng có nợ xấu có tỷ lệ nợ xấu hiện tại lên đến 18.32%, cao gấp khoảng 2.5 lần so với nhóm không có nợ xấu trước đây (7.45%).
+
+Điều này nhấn mạnh rằng lịch sử tín dụng đóng vai trò quan trọng trong việc đánh giá rủi ro và quyết định cấp tín dụng của ngân hàng, đồng thời phản ánh xu hướng cẩn trọng hơn trong quản lý danh mục cho vay.
+
+## Hướng phát triển trong tương lai
 - **Mở rộng tập dữ liệu:** Tích hợp thêm thông tin về thị trường và yếu tố kinh tế vĩ mô.
-- **Cải thiện mô hình:** Kết hợp các mô hình học sâu để tăng độ chính xác.
 - **Triển khai ứng dụng thực tế:** Phát triển hệ thống đánh giá tín dụng tự động hỗ trợ ngân hàng ra quyết định nhanh chóng.
+- Sử dụng thêm các model dự đoán về các khoản tin đáng tin cậy, không tin cậy dựa trên nhiều thông tin hơn trong tương lại
 
-## 8. Kết luận
-Dự án phân tích khoản vay ngân hàng giúp cải thiện quá trình ra quyết định tín dụng, giảm rủi ro và nâng cao hiệu quả hoạt động ngân hàng. Việc áp dụng phân tích dữ liệu và học máy trong lĩnh vực tài chính sẽ mang lại nhiều giá trị và tối ưu hóa quy trình quản lý tín dụng.
+## Kết luận
+Từ hai phân tích trên, có thể thấy rằng lịch sử tín dụng và thói quen thanh toán của khách hàng có ảnh hưởng rõ rệt đến trạng thái khoản vay hiện tại. Khách hàng có lịch sử trả chậm hoặc từng có nợ xấu không chỉ có tỷ lệ nợ xấu cao hơn mà còn gặp khó khăn hơn trong việc tiếp cận tín dụng mới. Điều này cho thấy tầm quan trọng của việc kiểm soát rủi ro tín dụng thông qua đánh giá lịch sử vay nợ, đồng thời nhấn mạnh nhu cầu về các chính sách quản lý tín dụng phù hợp nhằm giảm thiểu rủi ro và cải thiện chất lượng danh mục cho vay.
